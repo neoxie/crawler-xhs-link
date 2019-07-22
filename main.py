@@ -9,7 +9,6 @@ def main():
     for url in urls:
         print(url)
         article = read_article(url)
-        art_string = ','.join(str(i) for i in article)
         articles.append(article)
         time.sleep(2)
 
@@ -20,7 +19,7 @@ def write_csv(filename, articles):
     with open(filename, 'w') as f:
         f.write("url, title, like, comment, star \n")
         for article in articles:
-            art_string = ','.join(str(i) for i in article)
+            art_string = ','.join(article)
             f.write(art_string + '\n')
 
 
